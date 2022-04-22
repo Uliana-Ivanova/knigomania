@@ -15,6 +15,7 @@ from .models import Blog
 
 from .models import Comment
 from .forms import CommentForm
+from .forms import BlogForm
 
 def home(request):
     """Renders the home page."""
@@ -107,8 +108,8 @@ def newpost(request):
         if blogform.is_valid():
             blog_f = blogform.save(commit=False)
             blog_f.posted = datetime.now()
-            blof_f.autor = request.user
-            blog_f.save()
+            blof_f.author = request.user
+            blogform.save()
 
             return redirect('blog')
     else:

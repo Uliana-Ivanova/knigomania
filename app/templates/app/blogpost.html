@@ -2,7 +2,9 @@
 {% block content %}
 <h2> {{post.title}} </h2>
 
-
+{% if post_1.image and post_1.image.url !='/media/'%}
+<img src="{{post_1.image.urls}}" alt="картинка" цшвер="300"/>
+{% endif %}
 
 
 
