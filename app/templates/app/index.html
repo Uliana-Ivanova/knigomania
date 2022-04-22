@@ -1,0 +1,92 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+
+<div class="jumbotron">
+
+    {% load staticfiles %}
+    <a href="https://pishi.pro/" target="_blank"><img src="{%static 'app/content/girl.jpg'%}" width="300" , height="400" , align="left" , alt="chitay" /></a><br />
+    <h1>Давайте познакомимся</h1>
+    <p class="lead">
+        Рады вас видеть на нашем странице. Сайт должен понравится как начинающим авторам,
+        так и заядлым читателям.  Здесь вы сможете познакомиться с новыми людьми, познакомиться с произведениями молодых
+        авторов и попробовать себя в этой роли. Так же в дальнейшем планируем сотрудничать с Российскими издательствами и
+        проводить конкурсы на публикации у них.  Просим вас соблюдать приличия на нашем сайте и оставлять свои пожелания и вопросы в разделе Обратная связь
+    </p>
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Книжная полка</h2>
+        <a href="https://pishi.pro/" target="_blank"><img src="{%static 'app/content/bib.jpg'%}" width="200" , height="200" , align="left" , alt="chitay" /></a><br />
+
+        <p><a class="btn btn-default" href="">Найти книгу &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Моя библиотека</h2>
+        <a href="https://pishi.pro/" target="_blank"><img src="{%static 'app/content/my.jpg'%}" width="200" , height="200" , align="left" , alt="chitay" /></a><br />
+
+
+        <p><a class="btn btn-default" href="">Перейти &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Моя страница</h2>
+        <a href="https://pishi.pro/" target="_blank"><img src="{%static 'app/content/my1.jpg'%}" width="200" , height="200" , align="left" , alt="chitay" /></a><br />
+        <p><a class="btn btn-default" href="">Перейти &raquo;</a></p>
+    </div>
+</div>
+
+{% load staticfiles %}
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="{% static 'app/content/kar4.jpg'%} " alt="Первый слайд" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    Иногда самой интересной историей можете стать вы
+                    <a class="btn btn-default" href="{% url 'blogpost' parametr=3 %}">
+                        Читать далее
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static 'app/content/kar3.jpg'%}" alt="Второй слайд" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    
+                    <a class="btn btn-default" href="{% url 'blogpost' parametr=1 %}">
+                        Читать далее
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src=" {% static 'app/content/9DN_v8VH65U.jpg'%} " alt="Третий слайд" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    
+                    <a class="btn btn-default" href="{% url 'blogpost' parametr=2 %}">
+                        Читать далее
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Предыдущий</span>
+    </a>
+     <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Следующий</span>
+    </a>
+</div>
+{% endblock %}

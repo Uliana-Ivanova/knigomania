@@ -1,0 +1,97 @@
+{% extends "app/layout.html" %}
+{% block content %}
+{% if form != None %}
+<style>
+    input:hover{
+        color:red;
+       
+    }
+    forLabel:hover {
+        background-color: white;
+    }
+</style>
+<br>
+<h2>Оставте пожалуйста отзыв</h2>
+<br />
+<div>
+    <form method="post">
+        {% csrf_token %}
+        <label for="{{ form.name.id_for_label }}">{{ form.name.label }}:</label>
+        {{ form.name }}<br><br>
+
+        <label for="{{ form.internet.id_for_label }}">{{ form.internet.label }}:</label>
+        {{ form.internet }}<br><br>
+        <label for="{{ form.job.id_for_label }}">{{ form.job.label }}:</label>
+        {{ form.job }}<br><br>
+        <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
+        {{ form.message }}<br><br>
+
+
+        <label class="forLabel" for="{{ form.predlogenie.id_for_label }}">{{ form.predlogenie.label }}</label>
+        {{ form.predlogenie }}<br><br>
+        <label for="{{ form.gender.id_for_label }}">{{ form.gender.label }}:</label>
+        {{ form.gender }}
+        <label for="{{ form.notice.id_for_label }}">{{ form.notice.label }}:</label>
+        {{ form.notice }}<br><br>
+        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}:</label>
+        {{ form.email }}<br><br>
+        <input id="in1" type="submit" value="Отправить">
+
+
+
+    </form>
+</div>
+{% else %}
+<br />
+<h2>Благодарим за представленную информацию</h2>
+<h3>Вы написали следующее</h3>
+<ul>
+    <li><span>Тема отзыва: </span>{{ data.name }}</li>
+    <li><span>Положительные моменты: </span>{{ data.job }}</li>
+    <li><span>Отрицательные моменты: </span>{{ data.predlogenie }}</li>
+    <li><span>Предложения по развитию сайта: </span>{{ data.message }}</li>
+    <li><span>Вы бы предложили наш сайт своим знакомым?:   </span>{{ data.gender }}</li>
+    <li><span>Как давно вы пользуетесь нашим сайтом?:  </span>{{ data.internet }}</li>
+    <li><span>Хотите получить дубликат ответа на почту?:   </span>{{ data.notice }}</li>
+    <li><span>Ваша почта</span>{{ data.email }}</li>
+
+</ul>
+
+{% endif %}
+<script>
+    function message_focus() {
+        $('#id_message').css('background-color', 'skyblue');
+    }
+    $('#id_message').focus(message_focus);
+
+    function message_blur() {
+        $('#id_message').css('background-color', 'white');
+    }
+
+    $('#id_message').blur(message_blur);
+
+    function in1_mouseover() {
+        $('#in1').css('color', 'red');
+      }
+
+    $('#in1').mouseover(in1_mouseover);
+        
+    function in1_mouseout() {
+        $('#in1').css('color', 'black');
+     }
+
+    $('#in1').mouseout(in1_mouseout);
+
+    function name_focus() {
+        $('#id_name').css('background-color', 'yellow');
+    }
+
+    $('#id_name').focus(name_focus);
+
+    function name_blur() {
+        $('#id_name').css('background-color', 'white');
+    }
+
+    $('#id_name').blur(name_blur);
+</script>
+{% endblock %}
